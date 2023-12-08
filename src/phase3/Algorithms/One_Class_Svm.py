@@ -4,8 +4,8 @@ from sklearn.model_selection import train_test_split
 from sklearn.preprocessing import StandardScaler
 from sklearn.svm import OneClassSVM
 # One-Class SVM to calculate outliers
-data = pd.read_csv('cleaneddata.csv')
-sampleSize = 1000
+#data = pd.read_csv('cleaneddata.csv')
+#sampleSize = 1000
 
 def one_class_svm(data):
     #Selecting only features we need (lat and long)

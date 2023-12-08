@@ -1,11 +1,10 @@
-
 from flask import Flask, render_template, request
 import pandas as pd
-from phase3.Algorithms.KNN import knn
-from phase3.Algorithms.Log_Reg import log_reg
-from phase3.Algorithms.One_Class_Svm import one_class_svm
-from phase3.Algorithms.SVM import testSVMWithCSV
- 
+from Algorithms.KNN import *
+from Algorithms.One_Class_Svm import *
+from Algorithms.Log_Reg import *
+from Algorithms.SVM import *
+
 app = Flask(__name__)
 
 @app.route('/', methods=['GET', 'POST'])
@@ -24,7 +23,7 @@ def index():
             if algorithm == 'knn':
                 result = knn(data)
             elif algorithm == 'one_class_svm':
-                result = one_class_svm(data)
+               result = one_class_svm(data)
             elif algorithm == 'log_reg':
                 result = log_reg(data)
             elif algorithm == 'svm':

@@ -11,8 +11,8 @@ def sklearn_KNN(X_train,X_test,Y_train,k):
     return predictions
 
 #Read data
-data = pd.read_csv('cleaneddata.csv')
-k = 5
+#data = pd.read_csv('cleaneddata.csv')
+#k = 5
 def knn(data):
     #Grouping rows with unknown races 
     unknownRace = data.loc[data['PERP_RACE'] == 'UNKNOWN'].dropna()
