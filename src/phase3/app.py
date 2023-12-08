@@ -5,7 +5,7 @@ from phase3.Algorithms.KNN import knn
 from phase3.Algorithms.Log_Reg import log_reg
 from phase3.Algorithms.One_Class_Svm import one_class_svm
 from phase3.Algorithms.SVM import testSVMWithCSV
-
+ 
 app = Flask(__name__)
 
 @app.route('/', methods=['GET', 'POST'])
