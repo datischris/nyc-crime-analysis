@@ -5,13 +5,14 @@ from Algorithms.One_Class_Svm import *
 from Algorithms.Log_Reg import *
 from Algorithms.SVM import *
 from Algorithms.Kmeans import *
-
+from Algorithms.chi_squared import *
 app = Flask(__name__)
 
 @app.route('/', methods=['GET', 'POST'])
 def index():
     result = None
     algorithm = None
+    chi_result = None
     if request.method == 'POST':
         # Get uploaded file
         file = request.files['file']
@@ -31,7 +32,9 @@ def index():
                 result = testSVMWithCSV(data)
             elif algorithm == 'kmeans':
                 result = testKMeansWithCSV(data)
-    return render_template('index.html', result=result, algorithm=algorithm) 
+            elif algorithm == 'chi_squared':
+                chi_result = chi_squared(data)
+    return render_template('index.html', result=result, algorithm=algorithm, chi_result=chi_result) 
 
 
 

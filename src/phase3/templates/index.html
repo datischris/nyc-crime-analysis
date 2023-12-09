@@ -121,10 +121,15 @@
                 <option value="log_reg">Logistic Regression</option>
                 <option value="svm">SVM</option>
                 <option value="kmeans">Kmeans</option>
+                <option value="chi_squared">Chi-Squared</option>
             </select>
             <button type="submit">Show Me!</button>
         </form>
 
+        {% if chi_result %}
+            <h2>Chi-Squared Result:</h2>
+            <pre>{{ chi_result | safe }}</pre>
+        {% endif %}
 
         <button onclick="toggleDarkMode()" data-toggle-dark-mode>
             Toggle Dark Mode
