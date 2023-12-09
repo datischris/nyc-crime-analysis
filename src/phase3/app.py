@@ -1,5 +1,6 @@
 from flask import Flask, render_template, request
 import pandas as pd
+from Algorithms.clean import *
 from Algorithms.KNN import *
 from Algorithms.One_Class_Svm import *
 from Algorithms.Log_Reg import *
@@ -19,6 +20,9 @@ def index():
         if file:
             # Read CSV file
             data = pd.read_csv(file)
+            
+            # Clean CSV file
+            data = clean(data)
             
             # Choose algorithm based on selection
             algorithm = request.form['algorithm']
