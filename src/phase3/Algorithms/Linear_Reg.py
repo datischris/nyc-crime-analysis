@@ -5,7 +5,7 @@ from sklearn.linear_model import LinearRegression
 from datetime import datetime
 #Logistic Regression
 #data = pd.read_csv('NYPD_Arrest_Data__Year_to_Date_.csv')
-def log_reg(data): 
+def linear_reg(data): 
     data['ARREST_DATE'] = pd.to_datetime(data['ARREST_DATE']).dt.date
     daily_crime_counts = data.groupby('ARREST_DATE').size().reset_index(name='NUM_OF_CRIMES')
 
