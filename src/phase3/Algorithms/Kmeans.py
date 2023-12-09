@@ -27,7 +27,7 @@ def createClusters(centroids, points):
     return clusters
 
 
-def newCentroids (centroids, clusters):
+def newCentroids ( clusters):
     ret_val = []
     for cluster in clusters:
         mean = np.mean(cluster, axis=0)
@@ -52,7 +52,7 @@ def Kmeans(X_train, K):
     while True:
         clusters = createClusters(centroids, X_train)
 
-        new_centroids = newCentroids(centroids,clusters)
+        new_centroids = newCentroids(clusters)
 
         #if converge return the clusters
         if np.array_equal(new_centroids, centroids):
@@ -62,12 +62,11 @@ def Kmeans(X_train, K):
 
 
 
-def testKMeansWithCSV():
-    df = pd.read_csv('dataset\cleaneddata.csv')
-    filtered_df = df[(df['Latitude'] != 0) & (df['Longitude'] != 0)]
+def testKMeansWithCSV(df):
+    # df = df.sample(frac=0.1, random_state=42)
+    filtered_df = df[(df['Latitude'].notna()) & (df['Longitude'].notna()) & (df['Latitude'] != 0) & (df['Longitude'] != 0)]
     last_two_columns_array = filtered_df.iloc[:, -2:].values
     print(last_two_columns_array)
-
 
     K = 5
     result_clusters = Kmeans(last_two_columns_array, K)
@@ -95,5 +94,3 @@ def testKMeansWithCSV():
     plt.legend()
     plt.show()
 
-
-testKMeansWithCSV()
