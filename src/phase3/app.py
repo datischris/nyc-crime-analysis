@@ -4,6 +4,7 @@ from Algorithms.KNN import *
 from Algorithms.One_Class_Svm import *
 from Algorithms.Log_Reg import *
 from Algorithms.SVM import *
+from Algorithms.Kmeans import *
 
 app = Flask(__name__)
 
@@ -28,6 +29,8 @@ def index():
                 result = log_reg(data)
             elif algorithm == 'svm':
                 result = testSVMWithCSV(data)
+            elif algorithm == 'kmeans':
+                result = testKMeansWithCSV(data)
     return render_template('index.html', result=result, algorithm=algorithm) 
 
 

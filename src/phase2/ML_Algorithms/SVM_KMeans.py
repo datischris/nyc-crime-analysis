@@ -207,5 +207,5 @@ def testSVMWithCSV():
     plt.legend(title='Crime Type', loc='upper right')
     plt.show()
 
-testKMeansWithCSV()
+# testKMeansWithCSV()
 # testSVMWithCSV()
