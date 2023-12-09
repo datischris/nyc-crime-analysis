@@ -61,9 +61,5 @@ def chi_squared(crime_data):
     print(f"\nChi-square value: {chi2}",file=output)
     print(f"P-value: {p}",end=" ",file=output)
 
-    if p < 0.05:
-        print("(There is a significant association between gender and crime.)",file=output)
-    else:
-        print("(There is no significant association between gender and crime.)",file=output)
     return output.getvalue()
     

@@ -26,6 +26,14 @@
             text-align: center;
         }
 
+        .chi_result {
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            max-width: 600px;
+            padding-top: 30px;
+            padding-bottom: 20px;
+        }
+
         h1 {
             color: #333;
         }
@@ -61,6 +69,8 @@
         button {
             background-color: #4CAF50;
             color: white;
+            margin-top: 10px;
+            margin-bottom: 5px;
             padding: 15px;
             border: none;
             border-radius: 5px;
@@ -109,8 +119,8 @@
 </head>
 <body>
     <div class="container">
-        <h1>Phase 3 - Algorithm Selector</h1>
-        <p>Choose a CSV file and an algorithm to analyze the data.</p>
+        <h1>Phase 3 - Plot your NYPD Crime Data!</h1>
+        <p>Choose a cleaned NYPD CSV file and select an algorithm to analyze the data.</p>
         <form method="post" enctype="multipart/form-data">
             <label for="file">Choose CSV file:</label>
             <input type="file" name="file" accept=".csv" required>
@@ -127,8 +137,10 @@
         </form>
 
         {% if chi_result %}
-            <h2>Chi-Squared Result:</h2>
+        <div class="chi_result"> 
+            <h2>Chi-Squared Result</h2>
             <pre>{{ chi_result | safe }}</pre>
+        </div>
         {% endif %}
 
         <button onclick="toggleDarkMode()" data-toggle-dark-mode>
