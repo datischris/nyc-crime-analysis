@@ -6,7 +6,7 @@ from Algorithms.One_Class_Svm import *
 from Algorithms.Linear_Reg import *
 from Algorithms.SVM import *
 from Algorithms.Kmeans import *
-from Algorithms.chi_squared import *
+from Algorithms.chi_square import *
 app = Flask(__name__)
 
 @app.route('/', methods=['GET', 'POST'])
@@ -36,8 +36,8 @@ def index():
                 result = testSVMWithCSV(data)
             elif algorithm == 'kmeans':
                 result = testKMeansWithCSV(data)
-            elif algorithm == 'chi_squared':
-                chi_result = chi_squared(data)
+            elif algorithm == 'chi_square':
+                chi_result = chi_square(data)
     return render_template('index.html', result=result, algorithm=algorithm, chi_result=chi_result) 
 
 

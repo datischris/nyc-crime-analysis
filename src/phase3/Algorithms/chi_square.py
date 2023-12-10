@@ -48,7 +48,7 @@ def reassign_crime_type(crime_type):
         return 'Felony'
     
 
-def chi_squared(crime_data):      
+def chi_square(crime_data):      
     output = StringIO()
     crime_data = crime_data[crime_data['PERP_SEX'] != 'U']
 
